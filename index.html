@@ -584,7 +584,9 @@ footer {
     <div class="hero-badge" data-it="Belvedere Marittimo · Calabria" data-en="Belvedere Marittimo · Calabria">Belvedere Marittimo · Calabria</div>
     <h1 class="hero-title">MARELUNA</h1>
     <p class="hero-sub" data-it="Pizzeria & Bar" data-en="Pizzeria & Bar">Pizzeria & Bar</p>
-    <div class="hero-quote">
+    <div class="hero-quote"
+      data-it='<span class="gold">&ldquo;Fatte &apos;na pizza c&apos;a pummarola &apos;ncoppa,</span><br>vedrai che il mondo poi ti sorriderà,<br><span class="gold">fatte &apos;na pizza e crescerai più forte</span><br>e nessuno più ti fermerà.&rdquo;'
+      data-en='<span class="gold">&ldquo;Make a pizza with tomato sauce on top,</span><br>you&apos;ll see the world will smile at you,<br><span class="gold">make a pizza and you&apos;ll grow stronger</span><br>and no one will stop you anymore.&rdquo;'>
       <span class="gold">"Fatte 'na pizza c'a pummarola 'ncoppa,</span><br>
       vedrai che il mondo poi ti sorriderà,<br>
       <span class="gold">fatte 'na pizza e crescerai più forte</span><br>
@@ -596,7 +598,7 @@ footer {
     </a>
   </div>
   <div class="scroll-indicator">
-    <span>Scopri</span>
+    <span data-it="Scopri" data-en="Discover">Scopri</span>
     <div class="scroll-dot"></div>
   </div>
 </section>
@@ -1037,7 +1039,7 @@ function setLang(lang) {
   document.querySelectorAll('[data-it][data-en]').forEach(el => {
     const text = lang === 'it' ? el.dataset.it : el.dataset.en;
     if (!text) return;
-    if (el.classList.contains('section-title')) {
+    if (el.classList.contains('section-title') || el.classList.contains('hero-quote')) {
       el.innerHTML = text;
     } else {
       el.textContent = text;
