@@ -568,6 +568,10 @@ footer {
   <a href="menu.html" onclick="toggleMenu()" data-it="Menu" data-en="Menu">Menu</a>
   <a href="#recensioni" onclick="toggleMenu()" data-it="Recensioni" data-en="Reviews">Recensioni</a>
   <a href="#contatti" onclick="toggleMenu()" data-it="Contatti" data-en="Contacts">Contatti</a>
+  <div class="lang-switch" style="margin-top:10px;">
+    <button class="lang-btn active" onclick="setLang('it')">IT</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
 </div>
 
 <!-- HERO -->
@@ -586,8 +590,8 @@ footer {
       <span class="gold">fatte 'na pizza e crescerai più forte</span><br>
       e nessuno più ti fermerà."
     </div>
-    <a href="https://wa.me/393205551687?text=Buonasera!%20Vorrei%20prenotare%20un%20tavolo%20da%20Mareluna%20🌙" class="hero-cta" data-it="Prenota un Tavolo" data-en="Book a Table">
-      <span>Prenota un Tavolo</span>
+    <a href="https://wa.me/393205551687?text=Buonasera!%20Vorrei%20prenotare%20un%20tavolo%20da%20Mareluna%20🌙" class="hero-cta">
+      <span data-it="Prenota un Tavolo" data-en="Book a Table">Prenota un Tavolo</span>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
   </div>
@@ -613,7 +617,7 @@ footer {
     </div>
     <div>
       <div class="section-eyebrow" data-it="La nostra storia" data-en="Our story">La nostra storia</div>
-      <h2 class="section-title" data-it="Passione, impasto e fuoco" data-en="Passion, dough and fire">Passione,<br>impasto e fuoco</h2>
+      <h2 class="section-title" data-it="Passione, impasto<br>e fuoco" data-en="Passion, dough<br>and fire">Passione,<br>impasto e fuoco</h2>
       <div class="divider"><div class="divider-line"></div><div class="divider-moon">🌙</div><div class="divider-line"></div></div>
       <p class="section-desc" data-it="Da Mareluna la pizza è un'arte. Impasto ad alta idratazione con Pomodoro San Marzano Gustarosso, lunga lievitazione e ingredienti selezionati di prima qualità — dalla Bufala DOP de La Marinella alle Alici di Cetara. Ogni pizza racconta una storia di territorio e passione." data-en="At Mareluna, pizza is an art. High-hydration dough with San Marzano tomatoes, long fermentation and premium selected ingredients — from DOP Buffalo mozzarella to Cetara anchovies. Every pizza tells a story of territory and passion.">
         Da Mareluna la pizza è un'arte. Impasto ad alta idratazione con Pomodoro San Marzano Gustarosso, lunga lievitazione e ingredienti selezionati di prima qualità — dalla Bufala DOP de La Marinella alle Alici di Cetara. Ogni pizza racconta una storia di territorio e passione.
@@ -1031,15 +1035,17 @@ function showTab(id) {
 let currentLang = 'it';
 function setLang(lang) {
   currentLang = lang;
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.trim() === lang.toUpperCase()));
-  document.querySelectorAll('[data-'+lang+']').forEach(el => {
-    const text = el.getAttribute('data-'+lang);
-    if(text && !el.querySelector('.menu-item-price')) el.textContent = text;
+  document.querySelectorAll('[data-it][data-en]').forEach(el => {
+    const text = lang === 'it' ? el.dataset.it : el.dataset.en;
+    if (!text) return;
+    if (el.classList.contains('section-title')) {
+      el.innerHTML = text;
+    } else {
+      el.textContent = text;
+    }
   });
-  // Update tab buttons
-  document.querySelectorAll('.tab-btn').forEach(b => {
-    const t = b.getAttribute('data-'+lang);
-    if(t) b.textContent = t;
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent.trim() === lang.toUpperCase());
   });
 }
 
