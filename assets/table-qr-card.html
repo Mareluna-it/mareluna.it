@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&family=Jost:wght@200;300;400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 210mm;
+    background: white;
+  }
+
+  /* A4 page with 2 cards */
+  .page {
+    width: 210mm;
+    height: 297mm;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0;
+    page-break-after: always;
+  }
+
+  /* Each card: A6 = 105mm × 148mm */
+  .card {
+    width: 105mm;
+    height: 148mm;
+    background: #050c28;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8mm 7mm;
+    position: relative;
+    overflow: hidden;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* cut marks */
+  .card::after {
+    content: '';
+    position: absolute;
+    inset: 3mm;
+    border: 0.3pt dashed rgba(201,168,76,0.15);
+    pointer-events: none;
+  }
+
+  /* starfield */
+  .stars {
+    position: absolute;
+    inset: 0;
+  }
+  .star {
+    position: absolute;
+    width: 1px; height: 1px;
+    background: white;
+    border-radius: 50%;
+  }
+
+  /* top gold line */
+  .card-top-line {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 0.8mm;
+    background: linear-gradient(90deg, transparent, #c9a84c, #e0c878, #c9a84c, transparent);
+  }
+
+  /* corner ornaments */
+  .corner {
+    position: absolute;
+    width: 8mm; height: 8mm;
+    border-color: rgba(201,168,76,0.25);
+    border-style: solid;
+  }
+  .corner.tl { top: 5mm; left: 5mm; border-width: 0.5pt 0 0 0.5pt; }
+  .corner.tr { top: 5mm; right: 5mm; border-width: 0.5pt 0.5pt 0 0; }
+  .corner.bl { bottom: 5mm; left: 5mm; border-width: 0 0 0.5pt 0.5pt; }
+  .corner.br { bottom: 5mm; right: 5mm; border-width: 0 0.5pt 0.5pt 0; }
+
+  .logo {
+    width: 18mm;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 5px rgba(201,168,76,0.25));
+    position: relative;
+    z-index: 2;
+    margin-bottom: 3mm;
+  }
+
+  .eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-size: 2mm;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.7);
+    position: relative;
+    z-index: 2;
+    margin-bottom: 1.5mm;
+  }
+
+  .brand-name {
+    font-family: 'Cinzel', serif;
+    font-size: 7mm;
+    font-weight: 400;
+    letter-spacing: 4px;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+    line-height: 1;
+    margin-bottom: 1mm;
+  }
+  .brand-name span { color: #c9a84c; }
+
+  .brand-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2mm;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 5mm;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 3mm;
+    margin-bottom: 5mm;
+    position: relative;
+    z-index: 2;
+  }
+  .div-line {
+    width: 15mm;
+    height: 0.3pt;
+    background: rgba(201,168,76,0.3);
+  }
+  .div-moon {
+    color: #c9a84c;
+    font-size: 3mm;
+    line-height: 1;
+  }
+
+  .cta-text {
+    font-family: 'Jost', sans-serif;
+    font-size: 2.2mm;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    position: relative;
+    z-index: 2;
+    margin-bottom: 4mm;
+  }
+
+  .qr-wrap {
+    width: 48mm;
+    height: 48mm;
+    border: 0.5pt solid rgba(201,168,76,0.25);
+    padding: 2mm;
+    background: rgba(201,168,76,0.02);
+    position: relative;
+    z-index: 2;
+    margin-bottom: 4mm;
+  }
+  .qr-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .url-text {
+    font-family: 'Jost', sans-serif;
+    font-size: 2.2mm;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: rgba(201,168,76,0.6);
+    position: relative;
+    z-index: 2;
+    margin-bottom: 2mm;
+  }
+
+  .hours {
+    font-family: 'Jost', sans-serif;
+    font-size: 1.8mm;
+    font-weight: 200;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.25);
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  @media print {
+    html, body { background: white; }
+    .page { page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- 4 identical cards per A4 sheet -->
+  <div class="card" id="c1">
+    <div class="card-top-line"></div>
+    <div class="corner tl"></div>
+    <div class="corner tr"></div>
+    <div class="corner bl"></div>
+    <div class="corner br"></div>
+    <div class="stars" id="s1"></div>
+    <img src="logo.png" class="logo" alt="">
+    <div class="eyebrow">Belvedere Marittimo · Calabria</div>
+    <div class="brand-name">Mare<span>luna</span></div>
+    <div class="brand-sub">Pizzeria &amp; Bar</div>
+    <div class="divider"><div class="div-line"></div><div class="div-moon">🌙</div><div class="div-line"></div></div>
+    <div class="cta-text">Scansiona per il menu</div>
+    <div class="qr-wrap"><img src="qr-menu.png" alt="QR Menu"></div>
+    <div class="url-text">mare-luna.it/menu</div>
+    <div class="hours">Aperto ogni giorno · 18:00 – 23:30</div>
+  </div>
+
+  <div class="card" id="c2">
+    <div class="card-top-line"></div>
+    <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+    <div class="stars" id="s2"></div>
+    <img src="logo.png" class="logo" alt="">
+    <div class="eyebrow">Belvedere Marittimo · Calabria</div>
+    <div class="brand-name">Mare<span>luna</span></div>
+    <div class="brand-sub">Pizzeria &amp; Bar</div>
+    <div class="divider"><div class="div-line"></div><div class="div-moon">🌙</div><div class="div-line"></div></div>
+    <div class="cta-text">Scansiona per il menu</div>
+    <div class="qr-wrap"><img src="qr-menu.png" alt="QR Menu"></div>
+    <div class="url-text">mare-luna.it/menu</div>
+    <div class="hours">Aperto ogni giorno · 18:00 – 23:30</div>
+  </div>
+
+  <div class="card" id="c3">
+    <div class="card-top-line"></div>
+    <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+    <div class="stars" id="s3"></div>
+    <img src="logo.png" class="logo" alt="">
+    <div class="eyebrow">Belvedere Marittimo · Calabria</div>
+    <div class="brand-name">Mare<span>luna</span></div>
+    <div class="brand-sub">Pizzeria &amp; Bar</div>
+    <div class="divider"><div class="div-line"></div><div class="div-moon">🌙</div><div class="div-line"></div></div>
+    <div class="cta-text">Scansiona per il menu</div>
+    <div class="qr-wrap"><img src="qr-menu.png" alt="QR Menu"></div>
+    <div class="url-text">mare-luna.it/menu</div>
+    <div class="hours">Aperto ogni giorno · 18:00 – 23:30</div>
+  </div>
+
+  <div class="card" id="c4">
+    <div class="card-top-line"></div>
+    <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+    <div class="stars" id="s4"></div>
+    <img src="logo.png" class="logo" alt="">
+    <div class="eyebrow">Belvedere Marittimo · Calabria</div>
+    <div class="brand-name">Mare<span>luna</span></div>
+    <div class="brand-sub">Pizzeria &amp; Bar</div>
+    <div class="divider"><div class="div-line"></div><div class="div-moon">🌙</div><div class="div-line"></div></div>
+    <div class="cta-text">Scansiona per il menu</div>
+    <div class="qr-wrap"><img src="qr-menu.png" alt="QR Menu"></div>
+    <div class="url-text">mare-luna.it/menu</div>
+    <div class="hours">Aperto ogni giorno · 18:00 – 23:30</div>
+  </div>
+
+</div>
+
+<script>
+  ['s1','s2','s3','s4'].forEach(id => {
+    const el = document.getElementById(id);
+    for (let i = 0; i < 30; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      s.style.left = Math.random() * 100 + '%';
+      s.style.top = Math.random() * 100 + '%';
+      s.style.opacity = (Math.random() * 0.4 + 0.05).toFixed(2);
+      s.style.width = s.style.height = (Math.random() < 0.2 ? '2px' : '1px');
+      el.appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
