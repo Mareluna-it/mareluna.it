@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mareluna — Biglietto da Visita</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #1a1a2e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 40px;
+    padding: 60px 20px;
+    font-family: 'Jost', sans-serif;
+  }
+
+  .label {
+    color: rgba(255,255,255,0.3);
+    font-size: 0.6rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-family: 'Jost', sans-serif;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  /* ── CARD BASE ── */
+  .card {
+    width: 85mm;
+    height: 54mm;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(201,168,76,0.15);
+  }
+
+  /* ══════════════════ FRONT ══════════════════ */
+  .card-front {
+    background: #050c28;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  /* Corner ornaments */
+  .card-front::before,
+  .card-front::after {
+    content: '';
+    position: absolute;
+    width: 12mm;
+    height: 12mm;
+    border-color: rgba(201,168,76,0.2);
+    border-style: solid;
+  }
+  .card-front::before {
+    top: 3mm; left: 3mm;
+    border-width: 1px 0 0 1px;
+  }
+  .card-front::after {
+    bottom: 3mm; right: 3mm;
+    border-width: 0 1px 1px 0;
+  }
+
+  /* Stars */
+  .stars {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .star {
+    position: absolute;
+    width: 1px; height: 1px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+
+  .front-logo {
+    width: 13mm;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 4px rgba(201,168,76,0.3));
+    margin-bottom: 2.5mm;
+    position: relative;
+    z-index: 2;
+  }
+
+  .front-name {
+    font-family: 'Cinzel', serif;
+    font-size: 6.5mm;
+    font-weight: 400;
+    letter-spacing: 3.5px;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+    line-height: 1;
+    margin-bottom: 1mm;
+  }
+  .front-name span { color: #c9a84c; }
+
+  .front-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3mm;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 1.5px;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 3.5mm;
+  }
+
+  .front-divider {
+    display: flex;
+    align-items: center;
+    gap: 3mm;
+    margin-bottom: 3mm;
+    position: relative;
+    z-index: 2;
+  }
+  .divider-line {
+    width: 12mm;
+    height: 1px;
+    background: rgba(201,168,76,0.3);
+  }
+  .divider-moon {
+    color: #c9a84c;
+    font-size: 2.5mm;
+    line-height: 1;
+  }
+
+  .front-location {
+    font-family: 'Jost', sans-serif;
+    font-size: 2mm;
+    font-weight: 300;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.7);
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ══════════════════ BACK ══════════════════ */
+  .card-back {
+    background: #050c28;
+    padding: 5mm 6mm;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4mm;
+    align-items: center;
+  }
+
+  .card-back::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent);
+  }
+
+  .back-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    gap: 1.5mm;
+  }
+
+  .back-brand {
+    margin-bottom: 2mm;
+  }
+
+  .back-brand-name {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5mm;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #ffffff;
+    line-height: 1;
+  }
+  .back-brand-name span { color: #c9a84c; }
+
+  .back-brand-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5mm;
+    font-style: italic;
+    font-weight: 300;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.5px;
+    margin-top: 0.8mm;
+  }
+
+  .back-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2mm;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .back-contact-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5mm;
+  }
+
+  .back-contact-icon {
+    color: #c9a84c;
+    font-size: 2.5mm;
+    width: 3mm;
+    text-align: center;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .back-contact-text {
+    font-family: 'Jost', sans-serif;
+    font-size: 2.2mm;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.3px;
+    line-height: 1;
+  }
+
+  .back-hours {
+    font-family: 'Jost', sans-serif;
+    font-size: 1.8mm;
+    font-weight: 200;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.5px;
+    border-top: 1px solid rgba(201,168,76,0.1);
+    padding-top: 1.5mm;
+    margin-top: 0.5mm;
+  }
+  .back-hours span { color: rgba(201,168,76,0.5); }
+
+  .back-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5mm;
+  }
+
+  .back-qr {
+    width: 18mm;
+    height: 18mm;
+    border: 0.5px solid rgba(201,168,76,0.2);
+    padding: 1px;
+    background: rgba(201,168,76,0.02);
+  }
+
+  .back-qr img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .back-url {
+    font-family: 'Jost', sans-serif;
+    font-size: 1.6mm;
+    font-weight: 200;
+    color: rgba(201,168,76,0.5);
+    letter-spacing: 0.5px;
+    text-align: center;
+  }
+
+  /* ── PRINT CONTROLS ── */
+  .controls {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .btn {
+    background: none;
+    border: 1px solid rgba(201,168,76,0.4);
+    color: #c9a84c;
+    padding: 8px 24px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .btn:hover { background: rgba(201,168,76,0.1); }
+
+  .hint {
+    color: rgba(255,255,255,0.2);
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+    text-align: center;
+    max-width: 300px;
+    line-height: 1.6;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body {
+      background: white;
+      padding: 0;
+      margin: 0;
+      gap: 0;
+    }
+    .label, .controls, .hint { display: none; }
+    .cards-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 5mm;
+      padding: 10mm;
+    }
+    .card {
+      box-shadow: none;
+      border: 0.5pt solid rgba(0,0,0,0.15);
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+    .card-back::before { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cards-wrap">
+
+  <!-- FRONT -->
+  <div>
+    <div class="label">Fronte</div>
+    <div class="card card-front">
+
+      <!-- Stars -->
+      <div class="stars" id="stars"></div>
+
+      <img src="assets/logo.png" class="front-logo" alt="Mareluna logo">
+
+      <div class="front-name">Mare<span>luna</span></div>
+      <div class="front-tagline">Pizzeria &amp; Bar</div>
+
+      <div class="front-divider">
+        <div class="divider-line"></div>
+        <div class="divider-moon">🌙</div>
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="front-location">Belvedere Marittimo &nbsp;·&nbsp; Calabria</div>
+    </div>
+  </div>
+
+  <!-- BACK -->
+  <div>
+    <div class="label">Retro</div>
+    <div class="card card-back">
+
+      <div class="back-left">
+        <div class="back-brand">
+          <div class="back-brand-name">Mare<span>luna</span></div>
+          <div class="back-brand-sub">Pizzeria &amp; Bar</div>
+        </div>
+
+        <div class="back-contacts">
+          <div class="back-contact-row">
+            <div class="back-contact-icon">📍</div>
+            <div class="back-contact-text">Via G. Fiorillo 39, Belvedere Marittimo (CS)</div>
+          </div>
+          <div class="back-contact-row">
+            <div class="back-contact-icon">📞</div>
+            <div class="back-contact-text">+39 320 555 1687</div>
+          </div>
+          <div class="back-contact-row">
+            <div class="back-contact-icon">📸</div>
+            <div class="back-contact-text">@___mareluna___</div>
+          </div>
+          <div class="back-contact-row">
+            <div class="back-contact-icon">🌐</div>
+            <div class="back-contact-text">mare-luna.it</div>
+          </div>
+        </div>
+
+        <div class="back-hours">
+          <span>Aperto</span> &nbsp;Lun – Dom &nbsp;·&nbsp; 18:00 – 23:30
+        </div>
+      </div>
+
+      <div class="back-right">
+        <div class="back-qr">
+          <img src="assets/qr-menu.png" alt="QR Menu">
+        </div>
+        <div class="back-url">menu digitale</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="controls">
+  <button class="btn" onclick="window.print()">Stampa / Salva PDF</button>
+</div>
+<div class="hint">Stampa su carta 300 g/m² opaca o lucida.<br>Imposta margini 0 in fase di stampa.</div>
+
+<script>
+  // Scatter a few tiny stars on front card
+  const starsEl = document.getElementById('stars');
+  for (let i = 0; i < 25; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top = Math.random() * 100 + '%';
+    s.style.opacity = (Math.random() * 0.5 + 0.1).toFixed(2);
+    s.style.width = s.style.height = (Math.random() < 0.3 ? '2px' : '1px');
+    starsEl.appendChild(s);
+  }
+</script>
+</body>
+</html>
