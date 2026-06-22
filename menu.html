@@ -138,6 +138,14 @@ body {
   color: rgba(201,168,76,0.5); font-weight: 300;
 }
 
+/* Inline note (varianti, allergeni, coperto) */
+.item-note {
+  padding: 14px 20px 4px;
+  font-size: 0.78rem; line-height: 1.5;
+  font-style: italic;
+  color: rgba(201,168,76,0.75); font-weight: 300;
+}
+
 /* ── BOTTOM CTA ── */
 .bottom-bar {
   position: fixed; bottom: 0; left: 50%;
@@ -209,10 +217,11 @@ body {
     <button class="tab active" onclick="showTab('fritti',this)" data-it="Fritti" data-en="Fried">Fritti</button>
     <button class="tab" onclick="showTab('antipasti',this)" data-it="Antipasti" data-en="Starters">Antipasti</button>
     <button class="tab" onclick="showTab('tradizionali',this)" data-it="Tradizionali" data-en="Classics">Tradizionali</button>
-    <button class="tab" onclick="showTab('elaborate',this)" data-it="Elaborate" data-en="Specials">Elaborate</button>
-    <button class="tab" onclick="showTab('aggiunte',this)" data-it="Aggiunte" data-en="Extras">Aggiunte</button>
+    <button class="tab" onclick="showTab('speciali',this)" data-it="Speciali" data-en="Signature">Speciali</button>
+    <button class="tab" onclick="showTab('elaborate',this)" data-it="Elaborate" data-en="Gourmet">Elaborate</button>
     <button class="tab" onclick="showTab('bevande',this)" data-it="Bevande" data-en="Drinks">Bevande</button>
     <button class="tab" onclick="showTab('dessert',this)" data-it="Dessert" data-en="Dessert">Dessert</button>
+    <button class="tab" onclick="showTab('allergeni',this)" data-it="Allergeni" data-en="Allergens">Allergeni</button>
   </div>
 </div>
 
@@ -225,7 +234,6 @@ body {
   <div class="menu-item"><div><div class="item-name">Crocchè di Patate</div></div><div class="item-price">€ 3,00</div></div>
   <div class="menu-item"><div><div class="item-name">Arancina alla Nduja</div></div><div class="item-price">€ 4,00</div></div>
   <div class="menu-item"><div><div class="item-name">Fiori di Zucca Ripieni</div><div class="item-desc" data-it="Pz.4 · Ricotta e Alici" data-en="Qty 4 · Ricotta & Anchovies">Pz.4 · Ricotta e Alici</div></div><div class="item-price">€ 10,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Poker di Montanarine</div><div class="item-desc" data-it="Pz.4" data-en="Qty 4">Pz.4</div></div><div class="item-price">€ 12,00</div></div>
   <div class="menu-item"><div><div class="item-name">Mix di Fritti</div><div class="item-desc" data-it="Olive alla Ascolana, Mozzarelle in Carrozza, Tris di Polpettine" data-en="Stuffed Olives, Fried Mozzarella, Mini Meatball Trio">Olive alla Ascolana, Mozzarelle in Carrozza, Tris di Polpettine</div></div><div class="item-price">€ 8,00</div></div>
   <div class="menu-item"><div><div class="item-name">Montanara Fritta-Forno</div><div class="item-desc" data-it="Pizza Fritta e ripassata in forno, Ragù di Pomodoro, Grana e Basilico" data-en="Fried Pizza baked in oven, Tomato Ragù, Grana Cheese & Basil">Pizza Fritta e ripassata in forno, Ragù di Pomodoro, Grana e Basilico</div></div><div class="item-price">€ 10,00</div></div>
 </div>
@@ -236,6 +244,7 @@ body {
   <div class="menu-item"><div><div class="item-name">Bruschetta al Pomodoro</div></div><div class="item-price">€ 2,00</div></div>
   <div class="menu-item"><div><div class="item-name">Antipasto alla Calabrese</div></div><div class="item-price">€ 10,00</div></div>
   <div class="menu-item"><div><div class="item-name">Caprese di Bufala DOP</div></div><div class="item-price">€ 10,00</div></div>
+  <div class="menu-item"><div><div class="item-name">Poker di Montanarine</div><div class="item-desc" data-it="Pz.4" data-en="Qty 4">Pz.4</div></div><div class="item-price">€ 12,00</div></div>
   <div class="menu-item"><div><div class="item-name">Polpette al Sugo</div><div class="item-desc" data-it="Pz.3" data-en="Qty 3">Pz.3</div></div><div class="item-price">€ 12,00</div></div>
   <div class="menu-item"><div><div class="item-name">Parmigiana di Melanzane</div></div><div class="item-price">€ 8,00</div></div>
 </div>
@@ -256,6 +265,17 @@ body {
   <div class="menu-item"><div><div class="item-name">Diavola</div><div class="item-desc" data-it="Pomodoro SM, Nduja, Fior di Latte, Spianata Piccante, Scaglie di Caciocavallo, Olio Evo, Basilico" data-en="San Marzano Tomato, Nduja, Fior di Latte, Spicy Salami, Caciocavallo Shavings, EVO Oil, Basil">Pomodoro SM, Nduja, Fior di Latte, Spianata Piccante, Scaglie di Caciocavallo, Olio Evo, Basilico</div></div><div class="item-price">€ 10,00</div></div>
   <div class="menu-item"><div><div class="item-name">Capricciosa</div><div class="item-desc" data-it="Pomodoro SM, Fior di Latte, Prosciutto Cotto, Carciofi, Funghi Champignon Freschi, Olive, Olio Evo, Basilico" data-en="San Marzano Tomato, Fior di Latte, Cooked Ham, Artichokes, Fresh Champignon, Olives, EVO Oil, Basil">Pomodoro SM, Fior di Latte, Prosciutto Cotto, Carciofi, Funghi Champignon Freschi, Olive, Olio Evo, Basilico</div></div><div class="item-price">€ 10,00</div></div>
   <div class="menu-item"><div><div class="item-name">Regina di Bufala</div><div class="item-desc" data-it="Pomodoro SM, Bufala DOP, Olio Evo, Basilico" data-en="San Marzano Tomato, Buffalo Mozzarella DOP, EVO Oil, Basil">Pomodoro SM, Bufala DOP, Olio Evo, Basilico</div></div><div class="item-price">€ 10,00</div></div>
+  <div class="item-note" data-it="Variante: Mozzarella senza lattosio disponibile" data-en="Option: lactose-free mozzarella available">Variante: Mozzarella senza lattosio disponibile</div>
+</div>
+
+<!-- SPECIALI -->
+<div class="menu-pane" id="tab-speciali">
+  <div class="cat-header"><div class="cat-title" data-it="Le Speciali" data-en="Signature Pizzas">Le Speciali</div><div class="cat-line"></div></div>
+  <div class="menu-item" style="background:rgba(201,168,76,0.05);border-left:2px solid var(--oro)"><div><div class="item-name" style="color:var(--oro)">Racchetta ⭐</div><div class="item-desc" data-it="Pizza a Forma di Racchetta · Base Margherita · Crudo Irpino · Burrata Campana 125g · Manico Ripieno di Parmigiana di Melanzane" data-en="Racket-shaped Pizza · Margherita Base · Irpinia Cured Ham · Burrata 125g · Aubergine Parmigiana-filled Handle">Pizza a Forma di Racchetta · Base Margherita · Crudo Irpino · Burrata Campana 125g · Manico Ripieno di Parmigiana di Melanzane</div></div><div class="item-price">€ 15,00</div></div>
+  <div class="menu-item"><div><div class="item-name">Cappello di Totò</div><div class="item-desc" data-it="Cornicione Ripieno di Ricotta, Bufala in Cottura, Pomodori San Marzano Arrostiti, Crema di Basilico" data-en="Ricotta-stuffed Crust, Buffalo Mozzarella baked-in, Roasted San Marzano Tomatoes, Basil Cream">Cornicione Ripieno di Ricotta, Bufala in Cottura, Pomodori San Marzano Arrostiti, Crema di Basilico</div></div><div class="item-price">€ 15,00</div></div>
+  <div class="menu-item"><div><div class="item-name">Cornetto di Bufala</div><div class="item-desc" data-it="Pizza a Forma di Corno, Ripieno di Bufala, in Uscita Rucola, Crudo e Scaglie di Grana" data-en="Horn-shaped Pizza, Buffalo Mozzarella Filling, topped with Rocket, Cured Ham & Grana Shavings">Pizza a Forma di Corno, Ripieno di Bufala, in Uscita Rucola, Crudo e Scaglie di Grana</div></div><div class="item-price">€ 14,00</div></div>
+  <div class="menu-item"><div><div class="item-name">Fresella</div><div class="item-desc" data-it="Pizza a Forma di Fresella Calda e Croccante, Tonno Sardanelli a Filetti, Olive Taggiasche, Rucola, Bocconcini di Bufala" data-en="Hot Crispy Fresella-shaped Pizza, Sardanelli Tuna Fillets, Taggiasca Olives, Rocket, Buffalo Mozzarella Bites">Pizza a Forma di Fresella Calda e Croccante, Tonno Sardanelli a Filetti, Olive Taggiasche, Rucola, Bocconcini di Bufala</div></div><div class="item-price">€ 16,00</div></div>
+  <div class="item-note" data-it="Variante: Mozzarella senza lattosio disponibile" data-en="Option: lactose-free mozzarella available">Variante: Mozzarella senza lattosio disponibile</div>
 </div>
 
 <!-- ELABORATE -->
@@ -277,19 +297,7 @@ body {
   <div class="menu-item"><div><div class="item-name">Golfo</div><div class="item-desc" data-it="Pomodoro SM Gustarosso, Burrata Campana 125g, Datterini Rossi e Gialli, Alici di Cetara, Olio Evo, Basilico" data-en="San Marzano Gustarosso Tomato, Burrata 125g, Red & Yellow Datterini, Cetara Anchovies, EVO Oil, Basil">Pomodoro SM Gustarosso, Burrata Campana 125g, Datterini Rossi e Gialli, Alici di Cetara, Olio Evo, Basilico</div></div><div class="item-price">€ 13,00</div></div>
   <div class="menu-item"><div><div class="item-name">Porcina</div><div class="item-desc" data-it="Base di Crema ai Funghi Porcini, Bufala DOP, Salsiccia Sbriciolata, Pepe Nero, Olio Evo, Basilico" data-en="Porcini Mushroom Cream Base, Buffalo Mozzarella DOP, Crumbled Sausage, Black Pepper, EVO Oil, Basil">Base di Crema ai Funghi Porcini, Bufala DOP, Salsiccia Sbriciolata, Pepe Nero, Olio Evo, Basilico</div></div><div class="item-price">€ 13,00</div></div>
   <div class="menu-item"><div><div class="item-name">Leonessa</div><div class="item-desc" data-it="Pomodoro SM Gustarosso, Pomodorini Semi-dry, Burrata Campana 125g, Scaglie di Grana dodici Mesi, Olio Evo, Basilico" data-en="San Marzano Gustarosso Tomato, Semi-dried Cherry Tomatoes, Burrata 125g, 12-Month Grana Shavings, EVO Oil, Basil">Pomodoro SM Gustarosso, Pomodorini Semi-dry, Burrata Campana 125g, Scaglie di Grana dodici Mesi, Olio Evo, Basilico</div></div><div class="item-price">€ 14,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Cornetto di Bufala</div><div class="item-desc" data-it="Pizza a Forma di Corno, Ripieno di Bufala, in Uscita Rucola, Crudo e Scaglie di Grana" data-en="Horn-shaped Pizza, Buffalo Mozzarella Filling, topped with Rocket, Cured Ham & Grana Shavings">Pizza a Forma di Corno, Ripieno di Bufala, in Uscita Rucola, Crudo e Scaglie di Grana</div></div><div class="item-price">€ 14,00</div></div>
-  <div class="menu-item" style="background:rgba(201,168,76,0.05);border-left:2px solid var(--oro)"><div><div class="item-name" style="color:var(--oro)">Racchetta ⭐</div><div class="item-desc" data-it="Pizza a Forma di Racchetta · Base Margherita · Crudo Irpino · Burrata Campana 125g · Manico Ripieno di Parmigiana di Melanzane" data-en="Racket-shaped Pizza · Margherita Base · Irpinia Cured Ham · Burrata 125g · Aubergine Parmigiana-filled Handle">Pizza a Forma di Racchetta · Base Margherita · Crudo Irpino · Burrata Campana 125g · Manico Ripieno di Parmigiana di Melanzane</div></div><div class="item-price">€ 15,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Cappello di Totò</div><div class="item-desc" data-it="Cornicione Ripieno di Ricotta, Bufala in Cottura, Pomodori San Marzano Arrostiti, Crema di Basilico" data-en="Ricotta-stuffed Crust, Buffalo Mozzarella baked-in, Roasted San Marzano Tomatoes, Basil Cream">Cornicione Ripieno di Ricotta, Bufala in Cottura, Pomodori San Marzano Arrostiti, Crema di Basilico</div></div><div class="item-price">€ 15,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Fresella</div><div class="item-desc" data-it="Pizza a Forma di Fresella Calda e Croccante, Tonno Sardanelli a Filetti, Olive Taggiasche, Rucola, Bocconcini di Bufala" data-en="Hot Crispy Fresella-shaped Pizza, Sardanelli Tuna Fillets, Taggiasca Olives, Rocket, Buffalo Mozzarella Bites">Pizza a Forma di Fresella Calda e Croccante, Tonno Sardanelli a Filetti, Olive Taggiasche, Rucola, Bocconcini di Bufala</div></div><div class="item-price">€ 16,00</div></div>
-</div>
-
-<!-- AGGIUNTE -->
-<div class="menu-pane" id="tab-aggiunte">
-  <div class="cat-header"><div class="cat-title" data-it="Aggiunte" data-en="Extras">Aggiunte</div><div class="cat-line"></div></div>
-  <div class="menu-item"><div><div class="item-name" data-it="Aggiunte varie" data-en="Various extras">Aggiunte varie</div></div><div class="item-price">€ 1,50</div></div>
-  <div class="menu-item"><div><div class="item-name">Pomodoro</div></div><div class="item-price">€ 0,50</div></div>
-  <div class="menu-item"><div><div class="item-name">Fior di Latte</div></div><div class="item-price">€ 2,50</div></div>
-  <div class="menu-item"><div><div class="item-name">Bufala DOP</div><div class="item-desc" data-it="La Marinella" data-en="La Marinella">La Marinella</div></div><div class="item-price">€ 3,50</div></div>
+  <div class="item-note" data-it="Variante: Mozzarella senza lattosio disponibile" data-en="Option: lactose-free mozzarella available">Variante: Mozzarella senza lattosio disponibile</div>
 </div>
 
 <!-- BEVANDE -->
@@ -334,29 +342,12 @@ body {
   <div class="menu-item"><div><div class="item-name">Red Bull</div></div><div class="item-price">€ 2,50</div></div>
   <div class="menu-item"><div><div class="item-name">Tonica Premium Fever Tree</div></div><div class="item-price">€ 3,00</div></div>
   <div class="menu-item"><div><div class="item-name">Schweppes Lemon</div></div><div class="item-price">€ 3,00</div></div>
-  <div class="cat-label" data-it="Caffetteria" data-en="Coffee">Caffetteria</div>
-  <div class="menu-item"><div><div class="item-name">Caffè Espresso</div></div><div class="item-price">€ 1,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Caffè Macchiato</div></div><div class="item-price">€ 1,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Caffè Decaffeinato</div></div><div class="item-price">€ 1,20</div></div>
-  <div class="menu-item"><div><div class="item-name">Caffè Americano</div></div><div class="item-price">€ 1,50</div></div>
-  <div class="menu-item"><div><div class="item-name">Caffè Doppio</div></div><div class="item-price">€ 2,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Cappuccino</div></div><div class="item-price">€ 1,50</div></div>
-  <div class="menu-item"><div><div class="item-name">Latte Macchiato</div></div><div class="item-price">€ 1,80</div></div>
-  <div class="menu-item"><div><div class="item-name">Caffè Marocchino</div></div><div class="item-price">€ 1,50</div></div>
-  <div class="menu-item"><div><div class="item-name">Caffè Corretto</div></div><div class="item-price">€ 1,50</div></div>
-  <div class="menu-item"><div><div class="item-name">Ginseng</div></div><div class="item-price">€ 1,50</div></div>
-  <div class="cat-label" data-it="Cornetteria" data-en="Pastries">Cornetteria</div>
-  <div class="menu-item"><div><div class="item-name">Cornetto Mini</div></div><div class="item-price">€ 1,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Cornetto</div></div><div class="item-price">€ 1,50</div></div>
-  <div class="menu-item"><div><div class="item-name">Sfogliatella Napoletana Mini</div></div><div class="item-price">€ 1,50</div></div>
-  <div class="menu-item"><div><div class="item-name">Cornetto Vegano</div></div><div class="item-price">€ 2,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Cornetto Speciale</div></div><div class="item-price">€ 2,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Sfogliatella Napoletana</div></div><div class="item-price">€ 2,00</div></div>
   <div class="cat-label" data-it="Distillati" data-en="Spirits">Distillati</div>
   <div class="menu-item"><div><div class="item-name">Amari / Rum / Vodka / Baileys</div></div><div class="item-price">€ 3,00</div></div>
   <div class="menu-item"><div><div class="item-name">Grappa Bianca</div></div><div class="item-price">€ 3,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Grappa Barricata</div></div><div class="item-price">€ 3,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Limoncello / Sambuca</div></div><div class="item-price">€ 4,00</div></div>
+  <div class="menu-item"><div><div class="item-name">Grappa Barricata</div></div><div class="item-price">€ 4,00</div></div>
+  <div class="menu-item"><div><div class="item-name">Limoncello / Sambuca</div></div><div class="item-price">€ 3,00</div></div>
+  <div class="item-note" data-it="Caffè € 1,00 · Coperto € 2,00" data-en="Coffee € 1.00 · Cover charge € 2.00">Caffè € 1,00 · Coperto € 2,00</div>
 </div>
 
 <!-- DESSERT -->
@@ -366,9 +357,29 @@ body {
   <div class="menu-item"><div><div class="item-name">Tartufo al Cioccolato</div></div><div class="item-price">€ 4,00</div></div>
   <div class="menu-item"><div><div class="item-name">Tartufo Bianco</div></div><div class="item-price">€ 4,00</div></div>
   <div class="menu-item"><div><div class="item-name">Tiramisù</div></div><div class="item-price">€ 4,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Sorbetto al Limone</div></div><div class="item-price">€ 5,00</div></div>
+  <div class="menu-item"><div><div class="item-name">Sorbetto al Limone</div></div><div class="item-price">€ 4,00</div></div>
   <div class="menu-item"><div><div class="item-name">Sorbetto al Gin</div></div><div class="item-price">€ 5,00</div></div>
   <div class="menu-item"><div><div class="item-name">Straccetti alla Nutella</div></div><div class="item-price">€ 4,00</div></div>
+</div>
+
+<!-- ALLERGENI -->
+<div class="menu-pane" id="tab-allergeni">
+  <div class="cat-header"><div class="cat-title" data-it="Allergeni" data-en="Allergens">Allergeni</div><div class="cat-line"></div></div>
+  <div class="item-note" data-it="Preghiamo i nostri clienti di comunicare sempre al personale di sala eventuali allergie e intolleranze alimentari. REG. (UE) 1169/2011." data-en="Please always inform our staff of any food allergies or intolerances. REG. (EU) 1169/2011.">Preghiamo i nostri clienti di comunicare sempre al personale di sala eventuali allergie e intolleranze alimentari. REG. (UE) 1169/2011.</div>
+  <div class="menu-item"><div><div class="item-name" data-it="Glutine" data-en="Gluten">Glutine</div><div class="item-desc" data-it="Cereali come grano, segale, orzo, avena, farro, kamut" data-en="Cereals: wheat, rye, barley, oats, spelt, kamut">Cereali come grano, segale, orzo, avena, farro, kamut</div></div></div>
+  <div class="menu-item"><div><div class="item-name" data-it="Crostacei" data-en="Crustaceans">Crostacei</div><div class="item-desc" data-it="Gamberi, scampi, aragoste" data-en="Prawns, scampi, lobster">Gamberi, scampi, aragoste</div></div></div>
+  <div class="menu-item"><div><div class="item-name" data-it="Uova" data-en="Eggs">Uova</div><div class="item-desc" data-it="Presenti in salse o alcuni impasti" data-en="In sauces or some doughs">Presenti in salse o alcuni impasti</div></div></div>
+  <div class="menu-item"><div><div class="item-name" data-it="Pesce" data-en="Fish">Pesce</div><div class="item-desc" data-it="Acciughe, tonno" data-en="Anchovies, tuna">Acciughe, tonno</div></div></div>
+  <div class="menu-item"><div><div class="item-name" data-it="Arachidi" data-en="Peanuts">Arachidi</div><div class="item-desc" data-it="Spesso assenti, ma dichiarate se usate" data-en="Usually absent, declared if used">Spesso assenti, ma dichiarate se usate</div></div></div>
+  <div class="menu-item"><div><div class="item-name" data-it="Soia" data-en="Soy">Soia</div><div class="item-desc" data-it="Spesso presente in impasti industriali" data-en="Often in industrial doughs">Spesso presente in impasti industriali</div></div></div>
+  <div class="menu-item"><div><div class="item-name" data-it="Latte e Lattosio" data-en="Milk & Lactose">Latte e Lattosio</div><div class="item-desc" data-it="Mozzarella, formaggi" data-en="Mozzarella, cheeses">Mozzarella, formaggi</div></div></div>
+  <div class="menu-item"><div><div class="item-name" data-it="Frutta a guscio" data-en="Tree nuts">Frutta a guscio</div><div class="item-desc" data-it="Noci, pistacchi, mandorle, spesso su pizze gourmet" data-en="Walnuts, pistachios, almonds, often on gourmet pizzas">Noci, pistacchi, mandorle, spesso su pizze gourmet</div></div></div>
+  <div class="menu-item"><div><div class="item-name" data-it="Sedano" data-en="Celery">Sedano</div><div class="item-desc" data-it="Possibile in salse o basi preparate" data-en="Possible in sauces or prepared bases">Possibile in salse o basi preparate</div></div></div>
+  <div class="menu-item"><div><div class="item-name" data-it="Senape" data-en="Mustard">Senape</div><div class="item-desc" data-it="Possibile in salse" data-en="Possible in sauces">Possibile in salse</div></div></div>
+  <div class="menu-item"><div><div class="item-name" data-it="Semi di sesamo" data-en="Sesame seeds">Semi di sesamo</div><div class="item-desc" data-it="Sulla crosta o negli ingredienti" data-en="On the crust or in ingredients">Sulla crosta o negli ingredienti</div></div></div>
+  <div class="menu-item"><div><div class="item-name" data-it="Solfiti" data-en="Sulphites">Solfiti</div><div class="item-desc" data-it="Spesso presenti in concentrazioni" data-en="Often present in concentrations">Spesso presenti in concentrazioni</div></div></div>
+  <div class="menu-item"><div><div class="item-name" data-it="Lupini" data-en="Lupin">Lupini</div><div class="item-desc" data-it="A volte in farine speciali" data-en="Sometimes in special flours">A volte in farine speciali</div></div></div>
+  <div class="menu-item"><div><div class="item-name" data-it="Molluschi" data-en="Molluscs">Molluschi</div><div class="item-desc" data-it="Cozze, vongole" data-en="Mussels, clams">Cozze, vongole</div></div></div>
 </div>
 
 <!-- BOTTOM BAR -->
