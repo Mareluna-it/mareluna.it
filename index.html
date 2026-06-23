@@ -660,26 +660,23 @@ footer {
   </div>
 
   <div class="menu-tabs">
-    <button class="tab-btn active" onclick="showTab('fritti')" data-it="Fritti e Sfizi" data-en="Fried & Snacks">Fritti e Sfizi</button>
-    <button class="tab-btn" onclick="showTab('antipasti')" data-it="Antipasti" data-en="Starters">Antipasti</button>
-    <button class="tab-btn" onclick="showTab('tradizionali')" data-it="Tradizionali" data-en="Classics">Tradizionali</button>
-    <button class="tab-btn" onclick="showTab('elaborate')" data-it="Elaborate" data-en="Specials">Elaborate</button>
+    <button class="tab-btn active" onclick="showTab('pizzadrink',this)" data-it="Pizza &amp; Drink" data-en="Pizza &amp; Drink">Pizza &amp; Drink</button>
+    <button class="tab-btn" onclick="showTab('antipasti')" data-it="Per iniziare" data-en="Starters">Per iniziare</button>
+    <button class="tab-btn" onclick="showTab('fritti')" data-it="O'fritt" data-en="Fried">O'fritt</button>
+    <button class="tab-btn" onclick="showTab('tradizionali')" data-it="Le tradizionali" data-en="Classics">Le tradizionali</button>
+    <button class="tab-btn" onclick="showTab('elaborate')" data-it="Le Elaborate" data-en="Gourmet">Le Elaborate</button>
     <button class="tab-btn" onclick="showTab('bevande')" data-it="Bevande" data-en="Drinks">Bevande</button>
     <button class="tab-btn" onclick="showTab('dessert')" data-it="Dessert" data-en="Dessert">Dessert</button>
   </div>
 
-  <!-- FRITTI E SFIZI -->
-  <div class="menu-pane active" id="tab-fritti">
+  <!-- PIZZA & DRINK -->
+  <div class="menu-pane active" id="tab-pizzadrink">
     <div class="menu-grid">
-      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Patatine Fritte Stick</div></div><div class="menu-item-price">€ 3,00</div></div>
-      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Patatine Chips con Buccia</div></div><div class="menu-item-price">€ 4,00</div></div>
-      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Frittatina di Pasta Classica</div></div><div class="menu-item-price">€ 4,50</div></div>
-      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Crocchè di Patate</div></div><div class="menu-item-price">€ 3,00</div></div>
-      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Arancina alla Nduja</div></div><div class="menu-item-price">€ 4,00</div></div>
-      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Fiori di Zucca Ripieni</div><div class="menu-item-desc" data-it="Pz.4 · Ricotta e Alici" data-en="Qty 4 · Ricotta & Anchovies">Pz.4 · Ricotta e Alici</div></div><div class="menu-item-price">€ 10,00</div></div>
-      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Poker di Montanarine</div><div class="menu-item-desc" data-it="Pz.4" data-en="Qty 4">Pz.4</div></div><div class="menu-item-price">€ 12,00</div></div>
-      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Mix di Fritti</div><div class="menu-item-desc" data-it="Olive alla Ascolana, Mozzarelle in Carrozza, Tris di Polpettine" data-en="Ascolana Olives, Mozzarella in Carrozza, Trio of Meatballs">Olive alla Ascolana, Mozzarelle in Carrozza, Tris di Polpettine</div></div><div class="menu-item-price">€ 8,00</div></div>
-      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Montanara Fritta-Forno</div><div class="menu-item-desc" data-it="Pizza Fritta e ripassata in forno, Ragù di Pomodoro, Grana e Basilico" data-en="Fried Pizza finished in the oven, Tomato Ragù, Grana & Basil">Pizza Fritta e ripassata in forno, Ragù di Pomodoro, Grana e Basilico</div></div><div class="menu-item-price">€ 10,00</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Gin Monique</div><div class="menu-item-desc" data-it="Gin Sartoriale, Tonica Premium Fever Tree, petali di Rosa commestibili" data-en="Artisan Gin, Premium Fever Tree Tonic, edible Rose petals">Gin Sartoriale, Tonica Premium Fever Tree, petali di Rosa commestibili</div></div><div class="menu-item-price">€ 9,00</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Gin Lemon</div><div class="menu-item-desc" data-it="Consigliato in abbinamento alla Pizza Diavola" data-en="Recommended paired with Diavola Pizza">Consigliato in abbinamento alla Pizza Diavola</div></div><div class="menu-item-price">€ 7,00</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Spritz Aperol / Campari</div><div class="menu-item-desc" data-it="Consigliato in abbinamento alla Pizza Regina di Bufala" data-en="Recommended paired with Regina di Bufala Pizza">Consigliato in abbinamento alla Pizza Regina di Bufala</div></div><div class="menu-item-price">€ 6,00</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Negroni</div><div class="menu-item-desc" data-it="Consigliato in abbinamento alla Pizza Leonessa &amp; Napoli" data-en="Recommended paired with Leonessa &amp; Napoli Pizza">Consigliato in abbinamento alla Pizza Leonessa &amp; Napoli</div></div><div class="menu-item-price">€ 5,00</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Negroni Sbagliato</div><div class="menu-item-desc" data-it="Consigliato in abbinamento alla Pizza Mareluna" data-en="Recommended paired with Mareluna Pizza">Consigliato in abbinamento alla Pizza Mareluna</div></div><div class="menu-item-price">€ 6,00</div></div>
     </div>
   </div>
 
@@ -691,6 +688,21 @@ footer {
       <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Caprese di Bufala DOP</div></div><div class="menu-item-price">€ 10,00</div></div>
       <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Polpette al Sugo</div><div class="menu-item-desc" data-it="Pz.3" data-en="Qty 3">Pz.3</div></div><div class="menu-item-price">€ 12,00</div></div>
       <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Parmigiana di Melanzane</div></div><div class="menu-item-price">€ 8,00</div></div>
+    </div>
+  </div>
+
+  <!-- FRITTI E SFIZI -->
+  <div class="menu-pane" id="tab-fritti">
+    <div class="menu-grid">
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Patatine Fritte Stick</div></div><div class="menu-item-price">€ 3,00</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Patatine Chips con Buccia</div></div><div class="menu-item-price">€ 4,00</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Frittatina di Pasta Classica</div></div><div class="menu-item-price">€ 4,50</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Crocchè di Patate</div></div><div class="menu-item-price">€ 3,00</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Arancina alla Nduja</div></div><div class="menu-item-price">€ 4,00</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Fiori di Zucca Ripieni</div><div class="menu-item-desc" data-it="Pz.4 · Ricotta e Alici" data-en="Qty 4 · Ricotta & Anchovies">Pz.4 · Ricotta e Alici</div></div><div class="menu-item-price">€ 10,00</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Poker di Montanarine</div><div class="menu-item-desc" data-it="Pz.4" data-en="Qty 4">Pz.4</div></div><div class="menu-item-price">€ 12,00</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Mix di Fritti</div><div class="menu-item-desc" data-it="Olive alla Ascolana, Mozzarelle in Carrozza, Tris di Polpettine" data-en="Ascolana Olives, Mozzarella in Carrozza, Trio of Meatballs">Olive alla Ascolana, Mozzarelle in Carrozza, Tris di Polpettine</div></div><div class="menu-item-price">€ 8,00</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Montanara Fritta-Forno</div><div class="menu-item-desc" data-it="Pizza Fritta e ripassata in forno, Ragù di Pomodoro, Grana e Basilico" data-en="Fried Pizza finished in the oven, Tomato Ragù, Grana & Basil">Pizza Fritta e ripassata in forno, Ragù di Pomodoro, Grana e Basilico</div></div><div class="menu-item-price">€ 10,00</div></div>
     </div>
   </div>
 
@@ -761,12 +773,6 @@ footer {
       <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Pecorello Bianco Tenuta Ippolito</div></div><div class="menu-item-price">€ 22,00</div></div>
       <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Ribolla Gialla Tenuta Rosazza</div></div><div class="menu-item-price">€ 22,00</div></div>
       <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Calabrise Rosso IGT Tenute Ippolito</div></div><div class="menu-item-price">€ 20,00</div></div>
-      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name" style="color:rgba(255,255,255,0.4);font-size:0.7rem;letter-spacing:3px;text-transform:uppercase">Cocktail</div></div></div>
-      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Gin Monique</div><div class="menu-item-desc" data-it="Gin Sartoriale, Tonica Premium Fever Tree, petali di Rosa" data-en="Artisan Gin, Premium Fever Tree Tonic, Rose Petals">Gin Sartoriale, Tonica Premium Fever Tree, petali di Rosa</div></div><div class="menu-item-price">€ 9,00</div></div>
-      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Gin Lemon</div></div><div class="menu-item-price">€ 7,00</div></div>
-      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Spritz Aperol / Campari</div></div><div class="menu-item-price">€ 6,00</div></div>
-      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Negroni</div></div><div class="menu-item-price">€ 5,00</div></div>
-      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Negroni Sbagliato</div></div><div class="menu-item-price">€ 6,00</div></div>
       <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name" style="color:rgba(255,255,255,0.4);font-size:0.7rem;letter-spacing:3px;text-transform:uppercase">Bibite</div></div></div>
       <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Acqua Naturale / Frizzante</div></div><div class="menu-item-price">€ 2,50</div></div>
       <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Coca Cola / Zero in Vetro</div></div><div class="menu-item-price">€ 2,50</div></div>
