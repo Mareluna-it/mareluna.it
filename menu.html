@@ -214,11 +214,11 @@ body {
 <!-- TABS -->
 <div class="tabs-wrap">
   <div class="tabs">
-    <button class="tab active" onclick="showTab('fritti',this)" data-it="Fritti" data-en="Fried">Fritti</button>
-    <button class="tab" onclick="showTab('antipasti',this)" data-it="Antipasti" data-en="Starters">Antipasti</button>
-    <button class="tab" onclick="showTab('tradizionali',this)" data-it="Tradizionali" data-en="Classics">Tradizionali</button>
-    <button class="tab" onclick="showTab('speciali',this)" data-it="Speciali" data-en="Signature">Speciali</button>
-    <button class="tab" onclick="showTab('elaborate',this)" data-it="Elaborate" data-en="Gourmet">Elaborate</button>
+    <button class="tab active" onclick="showTab('antipasti',this)" data-it="Per iniziare" data-en="Starters">Per iniziare</button>
+    <button class="tab" onclick="showTab('fritti',this)" data-it="O'fritt" data-en="Fried">O'fritt</button>
+    <button class="tab" onclick="showTab('tradizionali',this)" data-it="Le tradizionali" data-en="Classics">Le tradizionali</button>
+    <button class="tab" onclick="showTab('speciali',this)" data-it="Le speciali" data-en="Signature">Le speciali</button>
+    <button class="tab" onclick="showTab('elaborate',this)" data-it="Le Elaborate" data-en="Gourmet">Le Elaborate</button>
     <button class="tab" onclick="showTab('bevande',this)" data-it="Bevande" data-en="Drinks">Bevande</button>
     <button class="tab" onclick="showTab('dessert',this)" data-it="Dessert" data-en="Dessert">Dessert</button>
     <button class="tab" onclick="showTab('allergeni',this)" data-it="Allergeni" data-en="Allergens">Allergeni</button>
@@ -226,7 +226,19 @@ body {
 </div>
 
 <!-- FRITTI E SFIZI -->
-<div class="menu-pane active" id="tab-fritti">
+<div class="menu-pane active" id="tab-antipasti">
+  <div class="cat-header"><div class="cat-title" data-it="Antipasti" data-en="Starters">Antipasti</div><div class="cat-line"></div></div>
+  <div class="menu-item"><div><div class="item-name">Bruschetta al Pomodoro</div></div><div class="item-price">€ 2,00</div></div>
+  <div class="menu-item"><div><div class="item-name">Antipasto alla Calabrese</div></div><div class="item-price">€ 10,00</div></div>
+  <div class="menu-item"><div><div class="item-name">Caprese di Bufala DOP</div></div><div class="item-price">€ 10,00</div></div>
+  <div class="menu-item"><div><div class="item-name">Poker di Montanarine</div><div class="item-desc" data-it="Pz.4" data-en="Qty 4">Pz.4</div></div><div class="item-price">€ 12,00</div></div>
+  <div class="menu-item"><div><div class="item-name">Polpette al Sugo</div><div class="item-desc" data-it="Pz.3" data-en="Qty 3">Pz.3</div></div><div class="item-price">€ 12,00</div></div>
+  <div class="menu-item"><div><div class="item-name">Parmigiana di Melanzane</div></div><div class="item-price">€ 8,00</div></div>
+</div>
+
+<!-- TRADIZIONALI -->
+
+<div class="menu-pane" id="tab-fritti">
   <div class="cat-header"><div class="cat-title" data-it="Fritti e Sfizi" data-en="Fried & Snacks">Fritti e Sfizi</div><div class="cat-line"></div></div>
   <div class="menu-item"><div><div class="item-name">Patatine Fritte Stick</div></div><div class="item-price">€ 3,00</div></div>
   <div class="menu-item"><div><div class="item-name">Patatine Chips con Buccia</div></div><div class="item-price">€ 4,00</div></div>
@@ -239,17 +251,7 @@ body {
 </div>
 
 <!-- ANTIPASTI -->
-<div class="menu-pane" id="tab-antipasti">
-  <div class="cat-header"><div class="cat-title" data-it="Antipasti" data-en="Starters">Antipasti</div><div class="cat-line"></div></div>
-  <div class="menu-item"><div><div class="item-name">Bruschetta al Pomodoro</div></div><div class="item-price">€ 2,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Antipasto alla Calabrese</div></div><div class="item-price">€ 10,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Caprese di Bufala DOP</div></div><div class="item-price">€ 10,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Poker di Montanarine</div><div class="item-desc" data-it="Pz.4" data-en="Qty 4">Pz.4</div></div><div class="item-price">€ 12,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Polpette al Sugo</div><div class="item-desc" data-it="Pz.3" data-en="Qty 3">Pz.3</div></div><div class="item-price">€ 12,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Parmigiana di Melanzane</div></div><div class="item-price">€ 8,00</div></div>
-</div>
 
-<!-- TRADIZIONALI -->
 <div class="menu-pane" id="tab-tradizionali">
   <div class="cat-header"><div class="cat-title" data-it="Le Tradizionali" data-en="The Classics">Le Tradizionali</div><div class="cat-line"></div></div>
   <div class="menu-item"><div><div class="item-name">Marinara</div><div class="item-desc" data-it="Pomodoro SM Gustarosso, Aglio, Origano, Olio Evo, Basilico" data-en="San Marzano Gustarosso Tomato, Garlic, Oregano, EVO Oil, Basil">Pomodoro SM Gustarosso, Aglio, Origano, Olio Evo, Basilico</div></div><div class="item-price">€ 5,00</div></div>
@@ -269,6 +271,7 @@ body {
 </div>
 
 <!-- SPECIALI -->
+
 <div class="menu-pane" id="tab-speciali">
   <div class="cat-header"><div class="cat-title" data-it="Le Speciali" data-en="Signature Pizzas">Le Speciali</div><div class="cat-line"></div></div>
   <div class="menu-item" style="background:rgba(201,168,76,0.05);border-left:2px solid var(--oro)"><div><div class="item-name" style="color:var(--oro)">Racchetta ⭐</div><div class="item-desc" data-it="Pizza a Forma di Racchetta · Base Margherita · Crudo Irpino · Burrata Campana 125g · Manico Ripieno di Parmigiana di Melanzane" data-en="Racket-shaped Pizza · Margherita Base · Irpinia Cured Ham · Burrata 125g · Aubergine Parmigiana-filled Handle">Pizza a Forma di Racchetta · Base Margherita · Crudo Irpino · Burrata Campana 125g · Manico Ripieno di Parmigiana di Melanzane</div></div><div class="item-price">€ 15,00</div></div>
@@ -279,6 +282,7 @@ body {
 </div>
 
 <!-- ELABORATE -->
+
 <div class="menu-pane" id="tab-elaborate">
   <div class="cat-header"><div class="cat-title" data-it="Le Elaborate" data-en="Chef's Specials">Le Elaborate</div><div class="cat-line"></div></div>
   <div class="menu-item"><div><div class="item-name">O' Colonello</div><div class="item-desc" data-it="Salsa di Pomodoro Giallo, Fior di Latte, Melanzane a Funghetto, Datterino Giallo, Scaglie di Grana, Olio Evo, Basilico" data-en="Yellow Tomato Sauce, Fior di Latte, Sautéed Aubergine, Yellow Datterino, Grana Shavings, EVO Oil, Basil">Salsa di Pomodoro Giallo, Fior di Latte, Melanzane a Funghetto, Datterino Giallo, Scaglie di Grana, Olio Evo, Basilico</div></div><div class="item-price">€ 12,00</div></div>
@@ -301,6 +305,7 @@ body {
 </div>
 
 <!-- BEVANDE -->
+
 <div class="menu-pane" id="tab-bevande">
   <div class="cat-label" data-it="Birre alla Spina" data-en="Draft Beer">Birre alla Spina</div>
   <div class="menu-item"><div><div class="item-name">Nastro Azzurro 0,20l</div></div><div class="item-price">€ 3,50</div></div>
@@ -359,6 +364,7 @@ body {
 </div>
 
 <!-- DESSERT -->
+
 <div class="menu-pane" id="tab-dessert">
   <div class="cat-header"><div class="cat-title" data-it="Dessert" data-en="Dessert">Dessert</div><div class="cat-line"></div></div>
   <div class="menu-item"><div><div class="item-name">Delizia al Limone</div></div><div class="item-price">€ 4,00</div></div>
@@ -371,6 +377,7 @@ body {
 </div>
 
 <!-- ALLERGENI -->
+
 <div class="menu-pane" id="tab-allergeni">
   <div class="cat-header"><div class="cat-title" data-it="Allergeni" data-en="Allergens">Allergeni</div><div class="cat-line"></div></div>
   <div class="item-note" data-it="Preghiamo i nostri clienti di comunicare sempre al personale di sala eventuali allergie e intolleranze alimentari. REG. (UE) 1169/2011." data-en="Please always inform our staff of any food allergies or intolerances. REG. (EU) 1169/2011.">Preghiamo i nostri clienti di comunicare sempre al personale di sala eventuali allergie e intolleranze alimentari. REG. (UE) 1169/2011.</div>
