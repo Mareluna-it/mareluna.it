@@ -214,7 +214,8 @@ body {
 <!-- TABS -->
 <div class="tabs-wrap">
   <div class="tabs">
-    <button class="tab active" onclick="showTab('antipasti',this)" data-it="Per iniziare" data-en="Starters">Per iniziare</button>
+    <button class="tab active" onclick="showTab('pizzadrink',this)" data-it="Pizza &amp; Drink" data-en="Pizza &amp; Drink">Pizza &amp; Drink</button>
+    <button class="tab" onclick="showTab('antipasti',this)" data-it="Per iniziare" data-en="Starters">Per iniziare</button>
     <button class="tab" onclick="showTab('fritti',this)" data-it="O'fritt" data-en="Fried">O'fritt</button>
     <button class="tab" onclick="showTab('tradizionali',this)" data-it="Le tradizionali" data-en="Classics">Le tradizionali</button>
     <button class="tab" onclick="showTab('speciali',this)" data-it="Le speciali" data-en="Signature">Le speciali</button>
@@ -226,7 +227,15 @@ body {
 </div>
 
 <!-- FRITTI E SFIZI -->
-<div class="menu-pane active" id="tab-antipasti">
+<div class="menu-pane active" id="tab-pizzadrink">
+  <div class="cat-label" data-it="Pizza & Drink" data-en="Pizza & Drink">Pizza & Drink</div>
+  <div class="menu-item"><div><div class="item-name">Gin Monique</div><div class="item-desc" data-it="Gin Sartoriale, Tonica Premium Fever Tree, petali di Rosa commestibili" data-en="Artisan Gin, Premium Fever Tree Tonic, edible Rose petals">Gin Sartoriale, Tonica Premium Fever Tree, petali di Rosa commestibili</div></div><div class="item-price">€ 9,00</div></div>
+  <div class="menu-item"><div><div class="item-name">Gin Lemon</div><div class="item-desc" data-it="Consigliato in abbinamento alla Pizza Diavola" data-en="Recommended paired with Diavola Pizza">Consigliato in abbinamento alla Pizza Diavola</div></div><div class="item-price">€ 7,00</div></div>
+  <div class="menu-item"><div><div class="item-name">Spritz Aperol / Campari</div><div class="item-desc" data-it="Consigliato in abbinamento alla Pizza Regina di Bufala" data-en="Recommended paired with Regina di Bufala Pizza">Consigliato in abbinamento alla Pizza Regina di Bufala</div></div><div class="item-price">€ 6,00</div></div>
+  <div class="menu-item"><div><div class="item-name">Negroni</div><div class="item-desc" data-it="Consigliato in abbinamento alla Pizza Leonessa &amp; Napoli" data-en="Recommended paired with Leonessa &amp; Napoli Pizza">Consigliato in abbinamento alla Pizza Leonessa &amp; Napoli</div></div><div class="item-price">€ 5,00</div></div>
+  <div class="menu-item"><div><div class="item-name">Negroni Sbagliato</div><div class="item-desc" data-it="Consigliato in abbinamento alla Pizza Mareluna" data-en="Recommended paired with Mareluna Pizza">Consigliato in abbinamento alla Pizza Mareluna</div></div><div class="item-price">€ 6,00</div></div>
+</div>
+<div class="menu-pane" id="tab-antipasti">
   <div class="cat-header"><div class="cat-title" data-it="Antipasti" data-en="Starters">Antipasti</div><div class="cat-line"></div></div>
   <div class="menu-item"><div><div class="item-name">Bruschetta al Pomodoro</div></div><div class="item-price">€ 2,00</div></div>
   <div class="menu-item"><div><div class="item-name">Antipasto alla Calabrese</div></div><div class="item-price">€ 10,00</div></div>
@@ -330,12 +339,6 @@ body {
   <div class="cat-label">Prosecco</div>
   <div class="menu-item"><div><div class="item-name">Berlucchi Brut</div></div><div class="item-price">€ 25,00</div></div>
   <div class="menu-item"><div><div class="item-name">V8+ Berto Brut</div></div><div class="item-price">€ 13,00</div></div>
-  <div class="cat-label">Cocktail</div>
-  <div class="menu-item"><div><div class="item-name">Gin Monique</div><div class="item-desc" data-it="Gin Sartoriale, Tonica Premium Fever Tree, petali di Rosa commestibili" data-en="Artisan Gin, Premium Fever Tree Tonic, edible Rose petals">Gin Sartoriale, Tonica Premium Fever Tree, petali di Rosa commestibili</div></div><div class="item-price">€ 9,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Gin Lemon</div><div class="item-desc" data-it="Consigliato in abbinamento alla Pizza Diavola" data-en="Recommended paired with Diavola Pizza">Consigliato in abbinamento alla Pizza Diavola</div></div><div class="item-price">€ 7,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Spritz Aperol / Campari</div><div class="item-desc" data-it="Consigliato in abbinamento alla Pizza Regina di Bufala" data-en="Recommended paired with Regina di Bufala Pizza">Consigliato in abbinamento alla Pizza Regina di Bufala</div></div><div class="item-price">€ 6,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Negroni</div><div class="item-desc" data-it="Consigliato in abbinamento alla Pizza Leonessa &amp; Napoli" data-en="Recommended paired with Leonessa &amp; Napoli Pizza">Consigliato in abbinamento alla Pizza Leonessa &amp; Napoli</div></div><div class="item-price">€ 5,00</div></div>
-  <div class="menu-item"><div><div class="item-name">Negroni Sbagliato</div><div class="item-desc" data-it="Consigliato in abbinamento alla Pizza Mareluna" data-en="Recommended paired with Mareluna Pizza">Consigliato in abbinamento alla Pizza Mareluna</div></div><div class="item-price">€ 6,00</div></div>
   <div class="cat-label" data-it="Bibite" data-en="Soft Drinks">Bibite</div>
   <div class="menu-item"><div><div class="item-name">Acqua Naturale</div></div><div class="item-price">€ 2,50</div></div>
   <div class="menu-item"><div><div class="item-name">Acqua Frizzante</div></div><div class="item-price">€ 2,50</div></div>
